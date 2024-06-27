@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CogniChat</title>
+		<link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<style>
+			.container {
+				margin: auto;
+				width: 400px;
+				height: 40px;
+				background-color: black;
+				border-radius: 5px;
+				border: 10px solid black;
+				align-items: flex-start;
+				font-family: Arial;
+			}
+		</style>
+	</head>
+
+	<body style="background-image: url('{{ STATIC_URL }}/static/images/fin2.jpg'); background-size: cover;">
+		<div class="headerBar" style = "background: black; width:400px;" >
+			<p style="margin-left: 95px; font-family: Arial; font-weight:bold;">COGNICHAT</p>
+		</div>
+		<div class="chatbox" style = "height: 500px; width: 400px">
+			<div class="chatlogs">
+				<div class="chat friend">
+					<p class="chat-message">Hello!</p>
+				</div>
+				<div class="chat friend" id="loadingGif" style="display: none;">
+					<div class="gif"><img src='{% static "Images/loading.gif" %}'></div>
+				</div>
+			</div>
+		</div>
+		<div class="chat-form" style = "width: 400px;">
+			<div id="inputDiv">
+				<div id="buttonDiv"></div>
+				<textarea class="input" placeholder="Message" rows="1" data-min-rows='1'></textarea>
+			</div>
+			<div id="chat-form-buttons">
+				<input type ="image"id="rec" name= 'rec'value="rec" src='{% static "Images/microphone.png" %}'>
+				<input type="image" src='{% static "Images/keyboard.png" %}' id="switchInputType"/>
+			</div>
+		</div>
+		<br>
+		<div class="container" style="padding-top: 2px;">
+			<a style="color: white; text-decoration: none; font-weight: bold;" href="{% url 'login' %}">&nbsp;&nbsp;LOG OUT&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</a>
+			<a style="color: white; text-decoration: none; font-weight: bold;" href="{% url 'chart' %}">SHOW EXPENSES</a>
+		</div>
+		<script type="text/javascript" src='{% static "index.js" %}'></script>
+	</body>
+</html>

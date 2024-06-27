@@ -1,0 +1,121 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>CogniChat Registration</title>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css'%}">
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css'%}">
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css'%}">
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css'%}">
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css'%}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}">
+
+		<style type="text/css">
+			body {
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			.lavender {
+				color: #543E69;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="limiter">
+			<div class="container-login100" style="background-image: url('{{ STATIC_URL }}/static/images/fin2.jpg'); background-size: cover;">
+				<div class="wrap-login100">
+					<form class="login100-form validate-form" method="POST">
+						{% csrf_token %}
+						<span class="login100-form-title" style = "padding-bottom: 26px; text-align = top">
+							<h3>WELCOME TO COGNICHAT<br><br></h3>
+						</span>
+
+						<!--Username-->
+						<div class="wrap-input100 validate-input">
+							<label for="Username"><b style = "color: #555555">USERNAME</b></label>
+							{{user_form.username}}
+						</div>
+
+						<!--Full Name-->
+						<div class="wrap-input100 validate-input">
+							<label for="name"><b style = "color: #555555">FULL NAME</b></label>
+							<input type="text" name="name" required>
+						</div>
+
+						<!--Email ID-->
+						<div class="wrap-input100 validate-input">
+							<label for="Email ID"><b style = "color: #555555">EMAIL - ID</b></label>
+							{{user_form.email}}
+						</div>
+
+						<!--Password-->
+						<div class="wrap-input100 validate-input">
+							<label for="Password"><b style = "color: #555555">PASSWORD</b></label>
+							{{user_form.password}}
+						</div>
+
+						<!--Monthly Income-->
+						<div class="wrap-input100 validate-input">
+							<label for="monthly_income"><b style = "color: #555555">MONTHLY INCOME</b></label>
+							<input type="number" name="monthly_income">
+						</div>
+
+						<!--Account balance-->
+						<div class="wrap-input100 validate-input">
+							<label for="account_balance"><b style = "color: #555555">ACCOUNT BALANCE</b></label>
+							<input type="number" name="account_balance">
+						</div>
+						<div class="container-login100-form-btn">
+							<div class="wrap-login100-form-btn">
+								<div class="login100-form-bgbtn"></div>
+								<button class="login100-form-btn" type="submit" style="padding: 0 20px 0px 20px;">
+									Register
+								</button>
+							</div>
+						</div>
+						<div style="text-align: center;">
+							<br><br>
+							<span class="txt1">
+								{%for i in messages%}
+                    				<p>{{i}}<br></p>
+                				{% endfor %}
+							</span>
+							<span class="txt1"><br>Already have an account?&nbsp;</span>
+							<a class="txt2" href="{% url 'login' %}">
+								Login Here
+							</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div id="dropDownSelect1"></div>
+
+		<script src="{{ STATIC_URL }}/static/vendor/jquery/jquery-3.2.1.min.js" type="059010966bcb1ededa97392c-text/javascript"></script>
+		<script src="{{ STATIC_URL }}/static/vendor/animsition/js/animsition.min.js" type="059010966bcb1ededa97392c-text/javascript"></script>
+		<script src="{{ STATIC_URL }}/static/vendor/bootstrap/js/popper.js" type="059010966bcb1ededa97392c-text/javascript"></script>
+		<script src="{{ STATIC_URL }}/static/vendor/bootstrap/js/bootstrap.min.js" type="059010966bcb1ededa97392c-text/javascript"></script>
+		<script src="{{ STATIC_URL }}/static/vendor/select2/select2.min.js" type="059010966bcb1ededa97392c-text/javascript"></script>
+		<script src="{{ STATIC_URL }}/static/vendor/daterangepicker/moment.min.js" type="059010966bcb1ededa97392c-text/javascript"></script>
+		<script src="{{ STATIC_URL }}/static/vendor/daterangepicker/daterangepicker.js" type="059010966bcb1ededa97392c-text/javascript"></script>
+		<script src="{{ STATIC_URL }}/static/vendor/countdowntime/countdowntime.js" type="059010966bcb1ededa97392c-text/javascript"></script>
+		<script src="{{ STATIC_URL }}/static/js/main.js" type="059010966bcb1ededa97392c-text/javascript"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="059010966bcb1ededa97392c-text/javascript"></script>
+		<script type="059010966bcb1ededa97392c-text/javascript">
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-23581568-13');
+		</script>
+		<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="059010966bcb1ededa97392c-|49" defer=""></script>
+	</body>
+</html>
